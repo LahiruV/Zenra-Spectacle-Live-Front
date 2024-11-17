@@ -32,34 +32,6 @@ export default function PropertyCardList({ props }) {
         navigate('/bookingForm')
     }
 
-    const handleReport = async (id) => {
-        try {
-            const newData = {
-                userID: JSON.parse(loguser)._id,
-                propertyID: id,
-                uniqueID: `${JSON.parse(loguser)._id}${id}`
-            }
-            await axios.post(
-                `${configs.apiUrl}/report/report`,
-                newData,
-                { headers: { 'Authorization': `Bearer ${token}` } }
-            )
-            await Swal.fire({
-                title: "Success!",
-                text: "Property has been reported.",
-                icon: 'success',
-                confirmButtonText: "OK"
-            })
-        } catch (error) {
-            Swal.fire({
-                title: "Error!",
-                text: "Property already reported.",
-                icon: 'error',
-                confirmButtonText: "OK"
-            });
-        }
-    }
-
 
     return (
         <Box sx={{ mt: 4 }}>

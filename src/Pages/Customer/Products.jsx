@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Navbar from '../../Components/NavBar/Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import PropertyCardList from '../../Components/PropertyCardList';
+import CardList from '../../Components/CardList';
 import axios from 'axios';
 import configs from '../../config.js';
 import Footer from '../../Components/Footer/Footer.jsx';
@@ -66,7 +66,7 @@ export default function Products() {
                         ))}
                     </Select>
                 </FormControl>
-                <PropertyCardList props={filteredAccommodations} />
+                <CardList props={filteredAccommodations} />
             </Container>
             <br />
             <br />

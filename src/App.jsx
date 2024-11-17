@@ -3,7 +3,6 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Home from './Pages/Main/Home';
 import MainHome from './Pages/Main/MainHome';
-import Property from './Pages/Customer/Property';
 import Products from './Pages/Customer/Products';
 import PaymentPage from './Pages/Customer/PaymentPage';
 
