@@ -66,11 +66,8 @@ const Navbar = () => {
             <MenuItem component={NavLink} to="/home" style={getLinkStyle} onClick={clickHome}>
               Home
             </MenuItem>
-            <MenuItem component={NavLink} to="/feedback" style={getLinkStyle} onClick={() => (window.location.href = '/feedback')}>
-              Feedback
-            </MenuItem>
-            <MenuItem component={NavLink} to="/profile" style={getLinkStyle}>
-              Profile
+            <MenuItem component={NavLink} to="/bodims" style={getLinkStyle}>
+              Products
             </MenuItem>
             <Button variant="contained" color="primary" component={NavLink} onClick={handleLogout} style={{ fontSize: '12px' }}>
               Logout

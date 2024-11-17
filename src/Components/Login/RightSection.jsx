@@ -22,10 +22,10 @@ export default function RightSection({ handleSubmit, errors }) {
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h4">
+                    <Typography component="h1" variant="h4" style={{ fontSize: '22px' }}>
                         <b>Login</b>
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1, fontSize: '12px' }}>
                         <TextField
                             margin="normal"
                             fullWidth
@@ -55,7 +55,7 @@ export default function RightSection({ handleSubmit, errors }) {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            sx={{ mt: 3, mb: 2 }}
+                            sx={{ mt: 3, mb: 2, fontSize: '12px' }}
                         >
                             Log In
                         </Button>

@@ -96,9 +96,9 @@ const Home = () => {
     };
 
     const carouselImages = [
-        'https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        'https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        'https://plus.unsplash.com/premium_photo-1692340973720-3e82f5dc22ea?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.pexels.com/photos/27347004/pexels-photo-27347004/free-photo-of-sunglasse.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        'https://images.pexels.com/photos/1311541/pexels-photo-1311541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     ];
 
     useEffect(() => {
@@ -124,9 +124,9 @@ const Home = () => {
         <ThemeProvider theme={defaultTheme}>
             <Navbar />
             <div className={classes.root}>
-                <Typography variant="h2" align="center" className={classes.title} style={{ fontWeight: 'bold', }}>
-                    <span style={{ color: '#0080FF' }}>UniBodim-Finder</span>
-                    <hr style={{ width: '600px' }} />
+                <Typography variant="h4" align="center" className={classes.title} style={{ fontWeight: 'bold', marginTop: '-40px', marginBottom: '-20px', fontSize: '22px' }}>
+                    Welcome To Finder<span style={{ color: '#0080FF' }}> Spectacles</span>
+                    <hr style={{ width: '200px', border: '0.3px solid white' }} />
                 </Typography>
                 <Grid container justifyContent="center">
                     <Grid item xs={12} lg={'auto'} >
@@ -138,37 +138,30 @@ const Home = () => {
                                     </div>
                                 ))}
                             </SwipeableViews>
-                            <Typography variant="body1" className={classes.description} align="center">                             
-                                <Typography variant="body1" style={{ fontSize: '1.2rem', fontWeight: 'lighter' }}>
-                                Our Boarding Listings Management System simplifies the process of listing and managing boarding properties. Designed for property owners, it allows you to easily input, update, and showcase essential details like location, amenities, pricing, and availability. With a user-friendly interface, it's the ideal platform to attract potential renters effortlessly.
+                            <Typography variant="body1" className={classes.description} align="center">
+                                <Typography variant="body1" style={{ fontSize: '16px', fontWeight: 'lighter' }}>
+                                    Welcome to Finder-Spectacles! We're excited to help you discover the perfect eyewear that enhances both your vision and style. Explore our wide selection of trendy and classic frames, and enjoy our virtual try-on feature for a seamless shopping experience. Thank you for choosing Finder-Spectacles where fashion meets function!
                                 </Typography>
                             </Typography>
-
-                            <IconButton className={`${classes.arrow} ${classes.prevArrow}`} onClick={handlePrevSlide}>
-                                <ArrowBackIcon />
-                            </IconButton>
-                            <IconButton className={`${classes.arrow} ${classes.nextArrow}`} onClick={handleNextSlide}>
-                                <ArrowForwardIcon />
-                            </IconButton>
                         </div>
                     </Grid>
                 </Grid>
-                <hr />
+                <hr style={{ border: '0.3px solid white', width: '80%' }} />
                 <Grid container justifyContent="center" spacing={4}>
                     <Grid item>
                         <Card className={classes.card}>
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image="https://images.pexels.com/photos/1462633/pexels-photo-1462633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    title="Kavee"
+                                    image="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    title="Emily Ross"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Kavee
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                        Emily Ross
                                     </Typography>
-                                    <Typography variant="body2" component="p">
-                                        This platform has made finding the perfect room near campus incredibly easy. I managed to secure a great spot just a few minutes from my classes. The booking process was straightforward, and the support team was very helpful when I had questions.
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
+                                        "Finder-Spectacles made finding my perfect pair of glasses so easy! The virtual try-on feature was a game-changer, and I couldn’t be happier with my stylish new frames."
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -179,15 +172,15 @@ const Home = () => {
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image="https://images.pexels.com/photos/2065490/pexels-photo-2065490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    title="Shani"
+                                    image="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    title="James Patel"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Shani
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                        James Patel
                                     </Typography>
-                                    <Typography variant="body2" component="p">
-                                        I was really stressed about finding a place to stay for my studies, but this site made it so much easier. I love how I can see all the available rooms near my university and read reviews from other students. It gave me the confidence to choose the best place for my needs.
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
+                                        "Amazing service and an incredible selection of eyewear! I found exactly what I was looking for and loved how seamless the entire process was. Highly recommend Finder-Spectacles!"
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -198,27 +191,21 @@ const Home = () => {
                             <CardActionArea>
                                 <CardMedia
                                     className={classes.media}
-                                    image="https://images.pexels.com/photos/4144096/pexels-photo-4144096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                    image="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                                     title="Norway"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Vas
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                        Sophia Tran
                                     </Typography>
-                                    <Typography variant="body2" component="p">
-                                        As an international student, finding a good room close to the university was my top priority. This site not only helped me find a great location but also made the booking process seamless. The support ticket feature was a lifesaver when I needed to sort out a minor issue with my landlord.
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
+                                        "I’ve never had such an enjoyable online shopping experience for glasses. The variety and quality exceeded my expectations, and the website’s user-friendly design made everything."
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                         </Card>
                     </Grid>
                 </Grid>
-                <hr />
-                <Typography variant="body1" style={{ paddingTop: '20px', paddingBottom: '20px', }} align="center">
-                    <Typography variant="body1" style={{ fontSize: '1.2rem', fontWeight: 'lighter' }}>
-                    Streamline your property management, attract more renters, and keep your listings up-to-date with our intuitive system, designed to enhance your boarding business efficiency and visibility.
-                    </Typography>
-                </Typography>
             </div>
             <Footer />
         </ThemeProvider>
