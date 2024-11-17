@@ -18,21 +18,22 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         padding: theme.spacing(4),
-        paddingBottom: '175px'
     },
     title: {
-        marginBottom: theme.spacing(4),
         textAlign: 'center',
         fontWeight: 'bold',
+        fontSize: '22px',
     },
     card: {
         display: 'flex',
         marginBottom: theme.spacing(2),
-        marginLeft: '160px',
-        marginRight: '160px'
+        marginLeft: '300px',
+        marginRight: '300px'
     },
     cardDetails: {
         flex: 1,
+        marginTop: '15px',
+        marginBottom: '-16px',
     },
     cardMedia: {
         width: 160,
@@ -115,11 +116,12 @@ const Cart = () => {
         <>
             <Navbar />
             <div className={classes.root}>
-                <Typography variant="h4" gutterBottom className={classes.title}>
-                    Manage Cart
-                </Typography>
-                <hr />
                 <br />
+                <br />
+                <Typography variant="h4" className={classes.title}>
+                    Cart
+                </Typography>
+                <hr style={{ width: '20px', border: '0.5px solid white', marginBottom: '20px', marginTop: '0px' }} />
                 {cartItems.map((item) => (
                     <Card key={item.id} className={classes.card}>
                         <CardMedia
@@ -130,26 +132,24 @@ const Cart = () => {
                         />
                         <div className={classes.cardDetails}>
                             <CardContent>
-                                <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 18 }}>{item.itemName}</Typography>
-                                <Typography variant="subtitle2">
+                                <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.itemName}</Typography>
+                                <Typography variant="subtitle2" style={{ fontSize: '12px' }}>
                                     Price: ${item.price}
                                 </Typography>
-                                <Typography variant="subtitle2" color="textSecondary">
+                                <Typography variant="subtitle2" color="textSecondary" style={{ fontSize: '12px' }}>
                                     Quantity:
                                     <input
                                         type="number"
-                                        style={{ width: 50, marginLeft: 10 }}
+                                        style={{ width: 50, marginLeft: 10, fontSize: '12px' }}
                                         value={item.quantity}
                                         onChange={(e) => handleChangeQuantity(item.id, parseInt(e.target.value))}
                                         min={1}
                                     />
                                 </Typography>
-                            </CardContent>
-                            <CardActions disableSpacing>
                                 <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.id)}>
-                                    <DeleteIcon />
+                                    <DeleteIcon color='error' style={{ fontSize: '22px' }} />
                                 </IconButton>
-                            </CardActions>
+                            </CardContent>
                         </div>
                     </Card>
                 ))}
