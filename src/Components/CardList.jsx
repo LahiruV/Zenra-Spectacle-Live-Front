@@ -46,15 +46,17 @@ export default function PropertyCardList({ props }) {
                                 alt={data.name}
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div" style={{ fontSize: '16px', fontWeight: 'bold' }}>
-                                    {/* {data.name} */}
-                                    Sunglasses Sunglasses
+                                <Typography variant="h5" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                    {data.name}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary" style={{ fontSize: '12px' }}>
+                                    <b>{data.gender}</b>
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" style={{ fontSize: '12px' }}>
                                     <b>Price : </b> {data.price} LKR
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" style={{ fontSize: '12px' }}>
-                                    At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.
+                                    {data.description}
                                 </Typography>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', marginBottom: '-10px' }}>
                                     <div></div>
