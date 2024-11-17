@@ -10,47 +10,53 @@ const productsCategory = ['All', 'Unisex', 'Men', 'Women'];
 const dataList = [
     {
         name: 'Arnette AN4321 278677',
-        price: '33,500',
+        price: '33500',
         description: 'The Arnette AN4321_278677 sunglasses feature a medium-sized design in red.These sunglasses are tailored for men. They are not prescription-compatible and do not belong to a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/n/an4321-removebg-preview_1.png',
-        gender: 'Men'
+        gender: 'Men',
+        qty: 1
     },
     {
         name: 'Coach HC7134 93318Z',
-        price: '57,000',
+        price: '57000',
         description: 'The Coach HC7134_93318Z sunglasses offer a medium-sized, full-frame design in brown. Made from metal, these stylish sunglasses are tailored for women. They are not prescription-compatible and not part of a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_30_.png',
-        gender: 'Women'
+        gender: 'Women',
+        qty: 1
     },
     {
         name: 'Polarized PL584 C4',
-        price: '5,000',
+        price: '5000',
         description: 'The Polarized PL584_C4 sunglasses feature a medium-sized, full-frame design in grey. Made from plastic, these unisex sunglasses provide stylish, durable wear. Not prescription-compatible or from a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_58_.png',
-        gender: 'Unisex'
+        gender: 'Unisex',
+        qty: 1
     },
     {
         name: 'Polarsun PL-5594P C4 G2',
-        price: '7,000',
+        price: '7000',
         description: 'The Polarsun PL-5594P C4/G2 sunglasses offer a medium-sized, full-frame design in red. Made from plastic, these stylish sunglasses are tailored for women. They are not prescription-compatible.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/_/a_5_1.jpg',
-        gender: 'Women'
+        gender: 'Women',
+        qty: 1
 
     },
     {
         name: 'Prada 09VS Pro',
-        price: '51,000',
+        price: '51000',
         description: 'The Prada 09VS sunglasses feature a medium-sized, full-frame design made from acetate. Tailored for women, these sunglasses offer luxury and style. They are not prescription-compatible.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/m/img_0255.jpg',
-        gender: 'Women'
+        gender: 'Women',
+        qty: 1
 
     },
     {
         name: 'RayBan RB3025 002 48',
-        price: '97,000',
+        price: '97000',
         description: 'The Ray-Ban RB3025_002_48 sunglasses feature a medium-sized design in black, crafted from metal. Designed for men, they combine classic style with durability.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/b/rb3025.png',
-        gender: 'Men'
+        gender: 'Men',
+        qty: 1
 
     },
 ];

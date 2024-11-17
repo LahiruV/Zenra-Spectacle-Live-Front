@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCartItemsList } from '../../Redux/common-slice';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Typography,
@@ -8,7 +11,6 @@ import {
     Card,
     CardContent,
     CardMedia,
-    CardActions,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Navbar from '../../Components/NavBar/Navbar';
@@ -32,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
     },
     cardDetails: {
         flex: 1,
-        marginTop: '15px',
-        marginBottom: '-16px',
+        marginTop: '35px',
+        marginBottom: '-36px',
     },
     cardMedia: {
         width: 160,
@@ -44,62 +46,34 @@ const useStyles = makeStyles((theme) => ({
     totalAmount: {
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(2),
+        fontSize: '16px'
     },
 }));
 
 const Cart = () => {
     const classes = useStyles();
-    // Hardcoded cart items for initial display
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            itemName: 'Sunglasses A',
-            price: 50,
-            quantity: 1,
-            picture: 'https://via.placeholder.com/160',
-        },
-        {
-            id: 2,
-            itemName: 'Sunglasses B',
-            price: 75,
-            quantity: 2,
-            picture: 'https://via.placeholder.com/160',
-        },
-        {
-            id: 3,
-            itemName: 'Sunglasses C',
-            price: 100,
-            quantity: 1,
-            picture: 'https://via.placeholder.com/160',
-        },
-    ]);
-
-    // useEffect(() => {
-    //     const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    //     if (storedCartItems) {
-    //         setCartItems(storedCartItems);
-    //     }
-    // }, []);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { cartItemsList: cartItems } = useSelector((state) => state.common);
 
     const handleRemoveFromCart = (id) => {
-        setCartItems(cartItems.filter((item) => item.id !== id));
+        dispatch(setCartItemsList(cartItems.filter((item) => item.name !== name)));
     };
 
-    const handleChangeQuantity = (id, quantity) => {
+    const handleChangeQuantity = (name, qty) => {
         const updatedCartItems = cartItems.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            item.name === name ? { ...item, qty } : item
         );
-        setCartItems(updatedCartItems);
+        dispatch(setCartItemsList(updatedCartItems));
     };
 
     const handleClearCart = () => {
-        localStorage.setItem('checkoutItems', JSON.stringify([]));
-        localStorage.setItem('cartItems', JSON.stringify([]));
-        window.location.href = '/MenuPage';
+        dispatch(setCartItemsList([]));
+        navigate('/products');
     };
 
     const calculateTotal = () => {
-        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+        return cartItems.reduce((total, item) => total + item.price * item.qty, 0);
     };
 
     const handleCheckout = () => {
@@ -132,7 +106,7 @@ const Cart = () => {
                         />
                         <div className={classes.cardDetails}>
                             <CardContent>
-                                <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.itemName}</Typography>
+                                <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.name}</Typography>
                                 <Typography variant="subtitle2" style={{ fontSize: '12px' }}>
                                     Price: ${item.price}
                                 </Typography>
@@ -141,36 +115,36 @@ const Cart = () => {
                                     <input
                                         type="number"
                                         style={{ width: 50, marginLeft: 10, fontSize: '12px' }}
-                                        value={item.quantity}
-                                        onChange={(e) => handleChangeQuantity(item.id, parseInt(e.target.value))}
+                                        value={item.qty}
+                                        onChange={(e) => handleChangeQuantity(item.name, parseInt(e.target.value))}
                                         min={1}
                                     />
                                 </Typography>
-                                <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.id)}>
-                                    <DeleteIcon color='error' style={{ fontSize: '22px' }} />
+                                <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.id)} style={{ marginLeft: '535px', marginTop: '-5px' }}>
+                                    <DeleteIcon color='error' style={{ fontSize: '22px', }} />
                                 </IconButton>
                             </CardContent>
                         </div>
                     </Card>
                 ))}
                 {cartItems.length === 0 && (
-                    <Typography variant="subtitle1" color="textSecondary">
+                    <Typography variant="subtitle1" color="textSecondary" style={{ fontSize: '12px', color: 'white', paddingBottom: '60vh', textAlign: 'center' }}>
                         Your cart is empty.
                     </Typography>
                 )}
                 {cartItems.length > 0 && (
-                    <div style={{ marginLeft: '160px', marginRight: '160px' }}>
+                    <div style={{ textAlign: 'right', paddingRight: '300px' }}>
                         <Typography variant="h6" gutterBottom className={classes.totalAmount}>
                             Total Price: ${calculateTotal()}
                         </Typography>
-                        <Grid container spacing={2}>
+                        <Grid container spacing={2} justify="flex-end">
                             <Grid item>
-                                <Button variant="contained" style={{ backgroundColor: 'red', color: 'white' }} onClick={handleClearCart}>
-                                    Clear Cart
+                                <Button variant="contained" style={{ backgroundColor: 'red', color: 'white', fontSize: '12px' }} onClick={handleClearCart}>
+                                    Clear
                                 </Button>
                             </Grid>
-                            <Grid item className={classes.buttonGroup}>
-                                <Button variant="contained" color="primary" onClick={handleCheckout}>
+                            <Grid item >
+                                <Button variant="contained" color="primary" style={{ fontSize: '12px' }} onClick={handleCheckout}>
                                     Check Out
                                 </Button>
                             </Grid>
