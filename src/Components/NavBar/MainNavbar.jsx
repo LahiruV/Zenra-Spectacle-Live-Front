@@ -20,14 +20,14 @@ const MainNavbar = () => {
     <ThemeProvider theme={defaultTheme}>
       <AppBar position="fixed">
         <Toolbar style={{ justifyContent: 'space-between', backgroundColor: '#282828' }}>
-          <Typography variant="h6" component={NavLink} to="/" style={{ ...linkStyle, flexGrow: 1, fontWeight: 'bolder' }}>
+          <Typography variant="h6" component={NavLink} to="/" style={{ ...linkStyle, flexGrow: 1, fontWeight: 'bolder', fontSize: '16px' }}>
             Finder<span style={{ color: '#0080FF' }}>-Spectacles</span>
           </Typography>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <Button variant="contained" color="primary" component={NavLink} to="/Register">
+            <Button variant="contained" color="primary" component={NavLink} to="/Register" style={{ fontSize: '12px' }}>
               Register
             </Button>
-            <Button variant="contained" color="primary" component={NavLink} to="/Login">
+            <Button variant="contained" color="primary" component={NavLink} to="/Login" style={{ fontSize: '12px' }}>
               Login
             </Button>
           </div>

@@ -24,14 +24,13 @@ const useStyles = makeStyles((theme) => ({
     contactGrid: {
         display: 'flex',
         alignItems: 'center',
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(1),
     },
     contactIcon: {
         marginRight: theme.spacing(1),
     },
     logo: {
         width: '100px',
-        marginBottom: theme.spacing(2),
     },
     logoContainer: {
         display: 'flex',
@@ -46,18 +45,18 @@ const Footer = () => {
         <footer className={classes.footer}>
             <Grid container spacing={4} justifyContent="center">
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom style={{ fontSize: '16px' }}>
                         Finder<span style={{ color: '#0080FF' }}>-Spectacles</span>
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" style={{ fontSize: '12px' }}>
                         At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom style={{ fontSize: '16px' }}>
                         Useful Links
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" style={{ fontSize: '12px' }}>
                         <Link to="/" className={classes.link}>Shop</Link>
                         <br />
                         <Link to="/" className={classes.link}>Contact Us</Link>
@@ -68,41 +67,41 @@ const Footer = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom style={{ fontSize: '16px' }}>
                         Contact
                     </Typography>
                     <div className={classes.contactGrid}>
-                        <Email className={classes.contactIcon} />
-                        <Typography variant="body1">
+                        <Email className={classes.contactIcon} style={{ fontSize: '16px' }} />
+                        <Typography variant="body1" style={{ fontSize: '12px' }}>
                             finderspectacles@gmail.com
                         </Typography>
                     </div>
                     <div className={classes.contactGrid}>
-                        <Phone className={classes.contactIcon} />
-                        <Typography variant="body1">
+                        <Phone className={classes.contactIcon} style={{ fontSize: '16px' }} />
+                        <Typography variant="body1" style={{ fontSize: '12px' }}>
                             +94 11 90 2903
                         </Typography>
                     </div>
                     <div className={classes.contactGrid}>
-                        <Print className={classes.contactIcon} />
-                        <Typography variant="body1">
+                        <Print className={classes.contactIcon} style={{ fontSize: '16px' }} />
+                        <Typography variant="body1" style={{ fontSize: '12px' }}>
                             +94 33 78 9029
                         </Typography>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom style={{ fontSize: '16px' }}>
                         Connect with Us
                     </Typography>
                     <div className={classes.socialIcons}>
                         <IconButton>
-                            <Facebook />
+                            <Facebook style={{ fontSize: '22px' }} />
                         </IconButton>
                         <IconButton>
-                            <Twitter />
+                            <Twitter style={{ fontSize: '22px' }} />
                         </IconButton>
                         <IconButton>
-                            <Instagram />
+                            <Instagram style={{ fontSize: '22px' }} />
                         </IconButton>
                     </div>
                     <div className={classes.logoContainer}>
@@ -110,7 +109,7 @@ const Footer = () => {
                     </div>
                 </Grid>
             </Grid>
-            <Typography variant="body1" align="center" style={{ marginTop: '2rem' }}>
+            <Typography variant="body1" align="center" >
                 <Copyright />
             </Typography>
         </footer>

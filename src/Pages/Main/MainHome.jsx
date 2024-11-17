@@ -124,7 +124,7 @@ const MainHome = () => {
         <ThemeProvider theme={defaultTheme}>
             <MainNavbar />
             <div className={classes.root}>
-                <Typography variant="h4" align="center" className={classes.title} style={{ fontWeight: 'bold', marginTop: '-40px', marginBottom: '-20px' }}>
+                <Typography variant="h4" align="center" className={classes.title} style={{ fontWeight: 'bold', marginTop: '-40px', marginBottom: '-20px', fontSize: '22px' }}>
                     Welcome To Finder<span style={{ color: '#0080FF' }}> Spectacles</span>
                     <hr style={{ width: '200px', border: '0.3px solid white' }} />
                 </Typography>
@@ -139,7 +139,7 @@ const MainHome = () => {
                                 ))}
                             </SwipeableViews>
                             <Typography variant="body1" className={classes.description} align="center">
-                                <Typography variant="body1" style={{ fontSize: '1.2rem', fontWeight: 'lighter' }}>
+                                <Typography variant="body1" style={{ fontSize: '16px', fontWeight: 'lighter' }}>
                                     Welcome to Finder-Spectacles! We're excited to help you discover the perfect eyewear that enhances both your vision and style. Explore our wide selection of trendy and classic frames, and enjoy our virtual try-on feature for a seamless shopping experience. Thank you for choosing Finder-Spectacles where fashion meets function!
                                 </Typography>
                             </Typography>
@@ -157,10 +157,10 @@ const MainHome = () => {
                                     title="Emily Ross"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
                                         Emily Ross
                                     </Typography>
-                                    <Typography variant="body2" component="p">
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
                                         "Finder-Spectacles made finding my perfect pair of glasses so easy! The virtual try-on feature was a game-changer, and I couldn’t be happier with my stylish new frames."
                                     </Typography>
                                 </CardContent>
@@ -176,10 +176,10 @@ const MainHome = () => {
                                     title="James Patel"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
                                         James Patel
                                     </Typography>
-                                    <Typography variant="body2" component="p">
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
                                         "Amazing service and an incredible selection of eyewear! I found exactly what I was looking for and loved how seamless the entire process was. Highly recommend Finder-Spectacles!"
                                     </Typography>
                                 </CardContent>
@@ -195,10 +195,10 @@ const MainHome = () => {
                                     title="Norway"
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
+                                    <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: '16px', fontWeight: 'bold' }}>
                                         Sophia Tran
                                     </Typography>
-                                    <Typography variant="body2" component="p">
+                                    <Typography variant="body2" component="p" style={{ fontSize: '12px' }}>
                                         "I’ve never had such an enjoyable online shopping experience for glasses. The variety and quality exceeded my expectations, and the website’s user-friendly design made everything."
                                     </Typography>
                                 </CardContent>
