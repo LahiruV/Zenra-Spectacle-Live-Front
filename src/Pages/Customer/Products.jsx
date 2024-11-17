@@ -46,11 +46,11 @@ const dataList = [
 
     },
     {
-        name: 'Sunglasses',
-        price: '1000',
-        description: 'At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.',
-        picture: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        gender: 'Unisex'
+        name: 'RayBan RB3025 002 48',
+        price: '97,000',
+        description: 'The Ray-Ban RB3025_002_48 sunglasses feature a medium-sized design in black, crafted from metal. Designed for men, they combine classic style with durability.',
+        picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/b/rb3025.png',
+        gender: 'Men'
 
     },
 ];
