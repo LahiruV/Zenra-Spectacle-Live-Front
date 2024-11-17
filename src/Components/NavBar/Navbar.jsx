@@ -4,14 +4,20 @@ import { NavLink } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCartItemsList } from '../../Redux/common-slice';
 
 const defaultTheme = createTheme();
+
 const Navbar = () => {
+
+  const dispatch = useDispatch();
   const { cartItemsList } = useSelector((state) => state.common);
+
   const handleLogout = () => {
     sessionStorage.setItem('token', '');
     sessionStorage.setItem('user', '');
+    dispatch(setCartItemsList([]));
     window.location.href = '/';
   };
 
