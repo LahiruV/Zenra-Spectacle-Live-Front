@@ -6,7 +6,7 @@ import CardList from '../../Components/CardList';
 import Footer from '../../Components/Footer/Footer.jsx';
 
 const defaultTheme = createTheme();
-const productsCategory = ['Unisex', 'Men', 'Women'];
+const productsCategory = ['All', 'Unisex', 'Men', 'Women'];
 const dataList = [
     {
         name: 'Arnette AN4321 278677',
@@ -24,25 +24,25 @@ const dataList = [
     },
     {
         name: 'Polarized PL584 C4',
-        price: '5000',
+        price: '5,000',
         description: 'The Polarized PL584_C4 sunglasses feature a medium-sized, full-frame design in grey. Made from plastic, these unisex sunglasses provide stylish, durable wear. Not prescription-compatible or from a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_58_.png',
         gender: 'Unisex'
     },
     {
-        name: 'Sunglasses',
-        price: '1000',
-        description: 'At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.',
-        picture: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        gender: 'Unisex'
+        name: 'Polarsun PL-5594P C4 G2',
+        price: '7,000',
+        description: 'The Polarsun PL-5594P C4/G2 sunglasses offer a medium-sized, full-frame design in red. Made from plastic, these stylish sunglasses are tailored for women. They are not prescription-compatible.',
+        picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/_/a_5_1.jpg',
+        gender: 'Women'
 
     },
     {
-        name: 'Classic Spectacles',
-        price: '1500',
-        description: 'At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.',
-        picture: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        gender: 'Unisex'
+        name: 'Prada 09VS Pro',
+        price: '51,000',
+        description: 'The Prada 09VS sunglasses feature a medium-sized, full-frame design made from acetate. Tailored for women, these sunglasses offer luxury and style. They are not prescription-compatible.',
+        picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/m/img_0255.jpg',
+        gender: 'Women'
 
     },
     {
@@ -56,7 +56,7 @@ const dataList = [
 ];
 
 export default function Products() {
-    const [selectedUni, setSelectedUni] = useState('Unisex');
+    const [selectedUni, setSelectedUni] = useState('All');
 
     const handleChange = (event) => {
         setSelectedUni(event.target.value);
@@ -66,9 +66,9 @@ export default function Products() {
         localStorage.setItem('bookingProperty', null);
     }, []);
 
-    const filteredAccommodations = selectedUni === 'Unisex'
+    const filteredAccommodations = selectedUni === 'All'
         ? dataList
-        : dataList.filter(data => data.category === selectedUni);
+        : dataList.filter(data => data.gender === selectedUni);
 
     return (
         <ThemeProvider theme={defaultTheme}>
