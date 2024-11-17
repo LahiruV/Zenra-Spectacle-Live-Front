@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainHome />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
         <Route path='/products' element={<Products />} />
         <Route path="/paymentPage" element={<PaymentPage />} />
         <Route path="/cart" element={<Cart />} />

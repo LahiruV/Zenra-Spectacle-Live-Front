@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, MenuItem, Menu, IconButton } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Badge from '@mui/material/Badge';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import { useSelector } from 'react-redux';
 
 const defaultTheme = createTheme();
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [anchorEl2, setAnchorEl2] = useState(null);
-
+  const { cartItemsCount } = useSelector((state) => state.common);
   const handleLogout = () => {
     sessionStorage.setItem('token', '');
     sessionStorage.setItem('user', '');
@@ -39,21 +39,6 @@ const Navbar = () => {
   }
     , []);
 
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick2 = (event) => {
-    setAnchorEl2(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleMenuClose2 = () => {
-    setAnchorEl2(null);
-  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -68,6 +53,11 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem component={NavLink} to="/products" style={getLinkStyle}>
               Products
+            </MenuItem>
+            <MenuItem component={NavLink} to="/cart" style={getLinkStyle}>
+              <Badge badgeContent={cartItemsCount} color="primary">
+                <ShoppingBagIcon style={{ color: 'white' }} />
+              </Badge>
             </MenuItem>
             <Button variant="contained" color="primary" component={NavLink} onClick={handleLogout} style={{ fontSize: '12px' }}>
               Logout
