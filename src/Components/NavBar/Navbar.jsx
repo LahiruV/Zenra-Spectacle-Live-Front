@@ -66,7 +66,7 @@ const Navbar = () => {
             <MenuItem component={NavLink} to="/home" style={getLinkStyle} onClick={clickHome}>
               Home
             </MenuItem>
-            <MenuItem component={NavLink} to="/bodims" style={getLinkStyle}>
+            <MenuItem component={NavLink} to="/products" style={getLinkStyle}>
               Products
             </MenuItem>
             <Button variant="contained" color="primary" component={NavLink} onClick={handleLogout} style={{ fontSize: '12px' }}>

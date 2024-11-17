@@ -74,34 +74,27 @@ export default function PropertyCardList({ props }) {
                                 alt={data.name}
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {data.name}
+                                <Typography gutterBottom variant="h5" component="div" style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                    {/* {data.name} */}
+                                    Sunglasses Sunglasses
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" color="text.secondary" style={{ fontSize: '12px' }}>
                                     <b>Price : </b> {data.price} LKR
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    <b>Adderss : </b> {data.address}
+                                <Typography variant="body2" color="text.secondary" style={{ fontSize: '12px' }}>
+                                    At Finder-Spectacles, we’re dedicated to providing a seamless and stylish eyewear shopping experience. We’re here to help you see and look your best.
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    <b>Contact : </b> {data.phone}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    <b>Campus Area : </b> {data.area}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    <b>Utilities: </b> {data.utilityID ? `${data.utilityID.name} x ${data.utilityID.quantity}` : 'No Utilities'}
-                                </Typography>
-                                <div>
-                                    <button variant="contained" color="primary" style={{ marginTop: '5px', marginLeft: '-5px', backgroundColor: '#0080FF' }} onClick={() => bookingProperty(data)}>
-                                        Booking
-                                    </button>
-                                    <button variant="contained" color="primary" style={{ marginTop: '5px', marginLeft: '5px', backgroundColor: '#7400B6' }} onClick={() => handleClickOpen(data)}>
-                                        View
-                                    </button>
-                                    <button style={{ marginTop: '5px', marginLeft: '5px', backgroundColor: 'red' }} onClick={() => handleReport(data._id)}>
-                                        Report
-                                    </button>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', marginBottom: '-10px' }}>
+                                    <div></div>
+                                    <div>
+                                        <button variant="contained" color="primary" style={{ marginTop: '5px', backgroundColor: '#0080FF', fontSize: '12px', borderRadius: '5px', marginRight: '10px' }} onClick={() => bookingProperty(data)}>
+                                            Add Cart
+                                        </button>
+                                        <button variant="contained" color="primary" style={{ marginTop: '5px', backgroundColor: '#7400B6', fontSize: '12px', borderRadius: '5px' }} onClick={() => handleClickOpen(data)}>
+                                            Try Me
+                                        </button>
+                                    </div>
+
                                 </div>
                             </CardContent>
                         </Card>
