@@ -7,7 +7,7 @@ type CommonState = {
 
 const initialState: CommonState = {
     cartItemsList: [],
-    cartItemsCount: 10,
+    cartItemsCount: 0,
 };
 
 export const commonSlice = createSlice({

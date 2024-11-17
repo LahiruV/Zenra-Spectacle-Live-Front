@@ -4,12 +4,8 @@ import Navbar from '../../Components/NavBar/Navbar';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Card, CardActionArea, CardContent, CardMedia, Grid, IconButton } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
 import Footer from '../../Components/Footer/Footer';
-import configs from '../../config.js';
 
 const defaultTheme = createTheme();
 
@@ -87,38 +83,11 @@ const Home = () => {
         };
     }, []);
 
-    const handlePrevSlide = () => {
-        setActiveStep((prevStep) => (prevStep === 0 ? carouselImages.length - 1 : prevStep - 1));
-    };
-
-    const handleNextSlide = () => {
-        setActiveStep((prevStep) => (prevStep === carouselImages.length - 1 ? 0 : prevStep + 1));
-    };
-
     const carouselImages = [
         'https://plus.unsplash.com/premium_photo-1692340973720-3e82f5dc22ea?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://images.pexels.com/photos/27347004/pexels-photo-27347004/free-photo-of-sunglasse.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
         'https://images.pexels.com/photos/1311541/pexels-photo-1311541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     ];
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const token = sessionStorage.getItem('token');
-                const config = {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                };
-                const response = await axios.get(`${configs.apiUrl}/auth/me`, config);
-                localStorage.setItem("user", JSON.stringify(response.data));
-            } catch (error) {
-                console.error('Error fetching user data', error);
-            }
-        };
-
-        fetchUserData();
-    }, []);
 
     return (
         <ThemeProvider theme={defaultTheme}>

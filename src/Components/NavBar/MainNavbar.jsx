@@ -10,12 +10,6 @@ const MainNavbar = () => {
     textDecoration: 'none',
   };
 
-  const activeStyle = {
-    color: '#0080FF',
-  };
-
-  const getLinkStyle = ({ isActive }) => (isActive ? { ...linkStyle, ...activeStyle } : linkStyle);
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <AppBar position="fixed">
