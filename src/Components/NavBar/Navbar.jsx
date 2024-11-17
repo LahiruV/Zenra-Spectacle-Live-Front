@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const defaultTheme = createTheme();
 const Navbar = () => {
-  const { cartItemsCount } = useSelector((state) => state.common);
+  const { cartItemsList } = useSelector((state) => state.common);
   const handleLogout = () => {
     sessionStorage.setItem('token', '');
     sessionStorage.setItem('user', '');
@@ -55,7 +55,7 @@ const Navbar = () => {
               Products
             </MenuItem>
             <MenuItem component={NavLink} to="/cart" style={getLinkStyle}>
-              <Badge badgeContent={cartItemsCount} color="primary">
+              <Badge badgeContent={cartItemsList.length} color="primary">
                 <ShoppingBagIcon style={{ color: 'white' }} />
               </Badge>
             </MenuItem>

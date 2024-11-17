@@ -3,19 +3,29 @@
 import { useState } from 'react';
 import { Box, Card, CardContent, CardMedia, Typography, Grid, Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import configs from '../config';
-import Swal from 'sweetalert2';
+import { setCartItemsList } from '../Redux/common-slice';
+import { useDispatch, useSelector } from "react-redux";
 
 
 export default function PropertyCardList({ props }) {
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [selecteditem, setSelecteditem] = useState(null);
     const token = sessionStorage.getItem('token');
-    const loguser = localStorage.getItem('user');
+    const { cartItemsList } = useSelector((state) => state.common);
 
+    const addToCart = (data) => {
+        let isExist = false;
+        cartItemsList.map((item) => {
+            if (item.name === data.name) {
+                isExist = true;
+            }
+        });
+        if (!isExist) {
+            const cartItems = [data]
+            dispatch(setCartItemsList(cartItemsList.concat(cartItems)));
+        }
+    };
 
     const handleClickOpen = (props) => {
         setSelecteditem(props);
@@ -26,12 +36,6 @@ export default function PropertyCardList({ props }) {
         setOpen(false);
         setSelecteditem(null);
     };
-
-    const bookingProperty = async (data) => {
-        localStorage.setItem('bookingProperty', JSON.stringify(data));
-        navigate('/bookingForm')
-    }
-
 
     return (
         <Box sx={{ mt: 4 }}>
@@ -61,7 +65,7 @@ export default function PropertyCardList({ props }) {
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px', marginBottom: '-10px' }}>
                                     <div></div>
                                     <div>
-                                        <button variant="contained" color="primary" style={{ marginTop: '5px', backgroundColor: '#0080FF', fontSize: '12px', borderRadius: '5px', marginRight: '10px' }} onClick={() => bookingProperty(data)}>
+                                        <button variant="contained" color="primary" style={{ marginTop: '5px', backgroundColor: '#0080FF', fontSize: '12px', borderRadius: '5px', marginRight: '10px' }} onClick={() => addToCart(data)}>
                                             Add Cart
                                         </button>
                                         <button variant="contained" color="primary" style={{ marginTop: '5px', backgroundColor: '#7400B6', fontSize: '12px', borderRadius: '5px' }} onClick={() => handleClickOpen(data)}>

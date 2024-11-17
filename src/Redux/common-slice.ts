@@ -2,12 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type CommonState = {
     cartItemsList: [],
-    cartItemsCount: number,
 };
 
 const initialState: CommonState = {
     cartItemsList: [],
-    cartItemsCount: 0,
 };
 
 export const commonSlice = createSlice({
@@ -17,11 +15,8 @@ export const commonSlice = createSlice({
         setCartItemsList: (state, action) => {
             state.cartItemsList = action.payload;
         },
-        setCartItemsCount: (state, action) => {
-            state.cartItemsCount = action.payload;
-        },
     },
 });
 
-export const { setCartItemsList, setCartItemsCount } = commonSlice.actions;
+export const { setCartItemsList } = commonSlice.actions;
 export default commonSlice.reducer;
