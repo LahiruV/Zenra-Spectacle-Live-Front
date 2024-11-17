@@ -56,7 +56,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const { cartItemsList: cartItems } = useSelector((state) => state.common);
 
-    const handleRemoveFromCart = (id) => {
+    const handleRemoveFromCart = (name) => {
         dispatch(setCartItemsList(cartItems.filter((item) => item.name !== name)));
     };
 
@@ -108,7 +108,7 @@ const Cart = () => {
                             <CardContent>
                                 <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.name}</Typography>
                                 <Typography variant="subtitle2" style={{ fontSize: '12px' }}>
-                                    Price: ${item.price}
+                                    Price: {item.price} LKR
                                 </Typography>
                                 <Typography variant="subtitle2" color="textSecondary" style={{ fontSize: '12px' }}>
                                     Quantity:
@@ -120,7 +120,7 @@ const Cart = () => {
                                         min={1}
                                     />
                                 </Typography>
-                                <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.id)} style={{ marginLeft: '535px', marginTop: '-5px' }}>
+                                <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.name)} style={{ marginLeft: '535px', marginTop: '-5px' }}>
                                     <DeleteIcon color='error' style={{ fontSize: '22px', }} />
                                 </IconButton>
                             </CardContent>
@@ -135,7 +135,7 @@ const Cart = () => {
                 {cartItems.length > 0 && (
                     <div style={{ textAlign: 'right', paddingRight: '300px' }}>
                         <Typography variant="h6" gutterBottom className={classes.totalAmount}>
-                            Total Price: ${calculateTotal()}
+                            Total Price: {calculateTotal()} LKR
                         </Typography>
                         <Grid container spacing={2} justify="flex-end">
                             <Grid item>
