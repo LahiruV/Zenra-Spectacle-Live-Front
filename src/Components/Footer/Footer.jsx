@@ -57,13 +57,13 @@ const Footer = () => {
                         Useful Links
                     </Typography>
                     <Typography variant="body1" style={{ fontSize: '12px' }}>
-                        <Link to="/" className={classes.link}>Shop</Link>
+                        <Link to="/home" className={classes.link}>Shop</Link>
                         <br />
-                        <Link to="/" className={classes.link}>Contact Us</Link>
+                        <Link to="/home" className={classes.link}>Contact Us</Link>
                         <br />
-                        <Link to="/" className={classes.link}>Careers</Link>
+                        <Link to="/home" className={classes.link}>Careers</Link>
                         <br />
-                        <Link to="/" className={classes.link}>Terms & Conditions</Link>
+                        <Link to="/home" className={classes.link}>Terms & Conditions</Link>
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
