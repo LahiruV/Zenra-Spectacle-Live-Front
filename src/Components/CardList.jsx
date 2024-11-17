@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { setCartItemsList } from '../Redux/common-slice';
 import { useDispatch, useSelector } from "react-redux";
 
-
 export default function PropertyCardList({ props }) {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
@@ -15,14 +14,11 @@ export default function PropertyCardList({ props }) {
     const { cartItemsList } = useSelector((state) => state.common);
 
     const addToCart = (data) => {
-        let isExist = false;
-        cartItemsList.map((item) => {
-            if (item.name === data.name) {
-                isExist = true;
-            }
-        });
-        if (!isExist) {
-            const cartItems = [data]
+        const isExist = cartItemsList.some((item) => item.name === data.name);
+        if (isExist) {
+            alert("This item is already in the cart");
+        } else {
+            const cartItems = [data];
             dispatch(setCartItemsList(cartItemsList.concat(cartItems)));
         }
     };
