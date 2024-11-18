@@ -8,6 +8,8 @@ import LeftSection from '../../Components/Login/LeftSection';
 import RightSection from '../../Components/Login/RightSection';
 import Footer from '../../Components/Footer/Footer';
 import configs from '../../config.js';
+import { useDispatch } from 'react-redux';
+import { setUserMail } from '../../Redux/common-slice.ts';
 
 const defaultTheme = createTheme();
 
@@ -20,6 +22,7 @@ export default function Login() {
     const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -62,7 +65,7 @@ export default function Login() {
 
         try {
             const response = await axios.post(`${configs.apiUrl}/auth/login`, user);
-            sessionStorage.setItem("token", response.data.token);            
+            sessionStorage.setItem("token", response.data.token);
             await Swal.fire({
                 title: "Success!",
                 text: "Login Success",
@@ -70,6 +73,7 @@ export default function Login() {
                 confirmButtonText: "OK",
                 type: "success"
             }).then(() => {
+                dispatch(setUserMail(email));
                 navigate('/home');
             });
         } catch (error) {
@@ -90,7 +94,7 @@ export default function Login() {
                 <LeftSection quotes={quotes} currentQuoteIndex={currentQuoteIndex} />
                 <RightSection handleSubmit={handleSubmit} errors={errors} />
             </Grid>
-            <Footer/>
+            <Footer />
         </ThemeProvider>
     );
 }

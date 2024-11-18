@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCartItemsList } from '../../Redux/common-slice';
+import { setCartItemsList, setOrderContent } from '../../Redux/common-slice';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Typography,
@@ -82,8 +82,8 @@ const Cart = () => {
             totalPrice: calculateTotal(),
             orderID: Math.floor(Math.random() * 1000000) + 1,
         };
-        localStorage.setItem('checkoutItems', JSON.stringify(checkoutItems));
-        window.location.href = '/CheckoutPage';
+        dispatch(setOrderContent(checkoutItems))
+        navigate('/paymentPage');
     };
 
     return (

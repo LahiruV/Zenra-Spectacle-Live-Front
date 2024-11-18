@@ -6,8 +6,12 @@ import masterCardIcon from '../../assets/mastercard.svg';
 import axios from 'axios';
 import configs from '../../config.js';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartItemsList } from '../../Redux/common-slice.ts';
 
 const PaymentPage = () => {
+    const { orderContent, userMail } = useSelector((state) => state.common);
+    const token = sessionStorage.getItem('token');
     const [formValues, setFormValues] = useState({
         cardNumber: '',
         expDate: '',
@@ -21,11 +25,8 @@ const PaymentPage = () => {
         holderName: false
     });
 
-    const serviceDetails = JSON.parse(localStorage.getItem('newService'));
-    const token = sessionStorage.getItem('token');
-    const loguser = localStorage.getItem('user');
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const handleChange = (e) => {
         setFormValues({
             ...formValues,
@@ -39,9 +40,9 @@ const PaymentPage = () => {
 
     const validate = () => {
         let tempErrors = { ...errors };
-        tempErrors.cardNumber = formValues.cardNumber.length !== 16;
+        tempErrors.cardNumber = formValues.cardNumber.length !== 16 || !/^\d+$/.test(formValues.cardNumber);
         tempErrors.expDate = !/^(0[1-9]|1[0-2])\/?([0-9]{2})$/.test(formValues.expDate);
-        tempErrors.cvv = formValues.cvv.length !== 3;
+        tempErrors.cvv = formValues.cvv.length !== 3 || !/^\d+$/.test(formValues.cvv);
         tempErrors.holderName = formValues.holderName === '';
         setErrors(tempErrors);
 
@@ -51,50 +52,20 @@ const PaymentPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validate()) {
-            const newData = {
-                name: JSON.parse(loguser).name,
-                email: JSON.parse(loguser).email,
-                phone: JSON.parse(loguser).phone,
-                serviceType: serviceDetails.name,
-                price: serviceDetails.price,
-                status: 'Pending',
-                allocatedStaff: '',
-                uniqueId: JSON.parse(loguser).email + serviceDetails.name
-            }
-            try {
-                const response = await axios.post(
-                    `${configs.apiUrl}/services/services`, newData,
-                    { headers: { 'Authorization': `Bearer ${token}` } }
-                ).then(
-                    axios.post(`${configs.apiUrl}/payments/payments`, {
-                        name: JSON.parse(loguser).name,
-                        email: JSON.parse(loguser).email,
-                        serviceName: serviceDetails.name,
-                        price: serviceDetails.price
-                    }, { headers: { 'Authorization': `Bearer ${token}` } })
-                )
-                await Swal.fire({
-                    title: "Success!",
-                    text: response.data.message,
-                    icon: 'success',
-                    confirmButtonText: "OK"
-                }).then(() => {
-                    navigate('/services');
-                });
-            } catch (error) {
-                Swal.fire({
-                    title: "Error!",
-                    text: 'You are already Requested this service',
-                    icon: 'error',
-                    confirmButtonText: "OK"
-                });
-                console.error('Error:', error.response ? error.response.data.error : error.message);
-            }
-        } else {
+            const itemNames = orderContent.items.map(item => item.name).join(', ');
+            const emailData = {
+                email: userMail,
+                header: `Order Created ${orderContent.orderID}`,
+                content: `Your order has been created successfully. Your order ID is ${orderContent.orderID}. Full Amount: ${orderContent.totalPrice} LKR. Items: ${itemNames}.`,
+            };
+            axios.post(`${configs.apiUrl}/mail/mail`, emailData, { headers: { 'Authorization': `Bearer ${token}` } });
             Swal.fire({
-                title: 'Error',
-                text: 'Please fill all fields correctly!',
-                icon: 'error'
+                icon: 'success',
+                title: 'Payment Successful',
+                text: 'Your payment was successful!',
+            }).then(() => {
+                dispatch(setCartItemsList([]));
+                window.location.href = '/home';
             });
         }
     };
@@ -121,17 +92,23 @@ const PaymentPage = () => {
                     backgroundColor: '#f9f9f9',
                 }}
             >
-                <Typography variant="h5" sx={{ mb: 3, color: `black` }}>
+                <Typography variant="h5" sx={{ mb: 1, color: `#ff6a4b`, fontSize: '20px', fontWeight: 'bolder' }}>
                     Payment Details
                 </Typography>
 
                 {/* Visa and MasterCard icons */}
-                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-                    <img src={visaIcon} alt="Visa" style={{ width: 50, marginRight: 10 }} />
-                    <img src={masterCardIcon} alt="MasterCard" style={{ width: 50 }} />
+                <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+                    <img src={visaIcon} alt="Visa" style={{ width: 40, marginRight: 10 }} />
+                    <img src={masterCardIcon} alt="MasterCard" style={{ width: 30 }} />
                 </Box>
-                <Typography variant="h6" sx={{ mb: 3, color: `black` }}>
-                    Amount : {serviceDetails.price} LKR
+                <Typography variant="h6" sx={{ mb: 0, color: `black`, fontSize: '14px' }}>
+                    <b>Way Bill No -</b> {orderContent.orderID}
+                </Typography>
+                <Typography variant="h6" sx={{ mb: 0, color: `black`, fontSize: '14px' }}>
+                    <b>Email -</b> {userMail}
+                </Typography>
+                <Typography variant="h6" sx={{ mb: 1, color: `black`, fontSize: '14px' }}>
+                    <b>Amount -</b> {orderContent.totalPrice} LKR
                 </Typography>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
@@ -141,7 +118,7 @@ const PaymentPage = () => {
                             value={formValues.cardNumber}
                             onChange={handleChange}
                             error={errors.cardNumber}
-                            helperText={errors.cardNumber && 'Card number must be 16 digits'}
+                            helperText={errors.cardNumber && 'Card number must be 16 digits and numeric'}
                             fullWidth
                             required
                             inputProps={{ maxLength: 16 }}
@@ -167,7 +144,7 @@ const PaymentPage = () => {
                             value={formValues.cvv}
                             onChange={handleChange}
                             error={errors.cvv}
-                            helperText={errors.cvv && 'CVV must be 3 digits'}
+                            helperText={errors.cvv && 'CVV must be 3 digits and numeric'}
                             fullWidth
                             required
                             inputProps={{ maxLength: 3 }}
@@ -186,7 +163,7 @@ const PaymentPage = () => {
                         />
                     </Grid>
                 </Grid>
-                <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3 }}>
+                <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, fontSize: '12px' }}>
                     Submit Payment
                 </Button>
             </Box>
