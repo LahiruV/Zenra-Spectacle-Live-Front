@@ -106,23 +106,29 @@ const Cart = () => {
                         />
                         <div className={classes.cardDetails}>
                             <CardContent>
-                                <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.name}</Typography>
-                                <Typography variant="subtitle2" style={{ fontSize: '12px' }}>
-                                    Price: {item.price} LKR
-                                </Typography>
-                                <Typography variant="subtitle2" color="textSecondary" style={{ fontSize: '12px' }}>
-                                    Quantity:
-                                    <input
-                                        type="number"
-                                        style={{ width: 50, marginLeft: 10, fontSize: '12px' }}
-                                        value={item.qty}
-                                        onChange={(e) => handleChangeQuantity(item.name, parseInt(e.target.value))}
-                                        min={1}
-                                    />
-                                </Typography>
-                                <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.name)} style={{ marginLeft: '535px', marginTop: '-5px' }}>
-                                    <DeleteIcon color='error' style={{ fontSize: '22px', }} />
-                                </IconButton>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <div>
+                                        <Typography variant="subtitle1" style={{ fontWeight: 'bold', fontSize: 16 }}>{item.name}</Typography>
+                                        <Typography variant="subtitle2" style={{ fontSize: '12px' }}>
+                                            Price: {item.price} LKR
+                                        </Typography>
+                                        <Typography variant="subtitle2" color="textSecondary" style={{ fontSize: '12px' }}>
+                                            Quantity:
+                                            <input
+                                                type="number"
+                                                style={{ width: 50, marginLeft: 10, fontSize: '12px' }}
+                                                value={item.qty}
+                                                onChange={(e) => handleChangeQuantity(item.name, parseInt(e.target.value))}
+                                                min={1}
+                                            />
+                                        </Typography>
+                                    </div>
+                                    <div>
+                                        <IconButton aria-label="remove" onClick={() => handleRemoveFromCart(item.name)}>
+                                            <DeleteIcon color='error' style={{ fontSize: '22px', }} />
+                                        </IconButton>
+                                    </div>
+                                </div>
                             </CardContent>
                         </div>
                     </Card>
