@@ -14,7 +14,8 @@ const dataList = [
         description: 'The Arnette AN4321_278677 sunglasses feature a medium-sized design in red.These sunglasses are tailored for men. They are not prescription-compatible and do not belong to a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/n/an4321-removebg-preview_1.png',
         gender: 'Men',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
     },
     {
         name: 'Coach HC7134 93318Z',
@@ -22,7 +23,8 @@ const dataList = [
         description: 'The Coach HC7134_93318Z sunglasses offer a medium-sized, full-frame design in brown. Made from metal, these stylish sunglasses are tailored for women. They are not prescription-compatible and not part of a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_30_.png',
         gender: 'Women',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
     },
     {
         name: 'Polarized PL584 C4',
@@ -30,7 +32,8 @@ const dataList = [
         description: 'The Polarized PL584_C4 sunglasses feature a medium-sized, full-frame design in grey. Made from plastic, these unisex sunglasses provide stylish, durable wear. Not prescription-compatible or from a new collection.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_58_.png',
         gender: 'Unisex',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
     },
     {
         name: 'Polarsun PL-5594P C4 G2',
@@ -38,7 +41,8 @@ const dataList = [
         description: 'The Polarsun PL-5594P C4/G2 sunglasses offer a medium-sized, full-frame design in red. Made from plastic, these stylish sunglasses are tailored for women. They are not prescription-compatible.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/_/a_5_1.jpg',
         gender: 'Women',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
 
     },
     {
@@ -47,7 +51,8 @@ const dataList = [
         description: 'The Prada 09VS sunglasses feature a medium-sized, full-frame design made from acetate. Tailored for women, these sunglasses offer luxury and style. They are not prescription-compatible.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/m/img_0255.jpg',
         gender: 'Women',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
 
     },
     {
@@ -56,7 +61,8 @@ const dataList = [
         description: 'The Ray-Ban RB3025_002_48 sunglasses feature a medium-sized design in black, crafted from metal. Designed for men, they combine classic style with durability.',
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/b/rb3025.png',
         gender: 'Men',
-        qty: 1
+        qty: 1,
+        sunglass: 'sunglasses1'
 
     },
 ];

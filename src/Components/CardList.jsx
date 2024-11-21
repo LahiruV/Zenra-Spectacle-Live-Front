@@ -10,7 +10,6 @@ export default function PropertyCardList({ props }) {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [selecteditem, setSelecteditem] = useState(null);
-    const token = sessionStorage.getItem('token');
     const { cartItemsList } = useSelector((state) => state.common);
 
     const addToCart = (data) => {
@@ -93,45 +92,12 @@ export default function PropertyCardList({ props }) {
                     </IconButton>
                 </DialogTitle>
                 <DialogContent>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Price : </b> {selecteditem?.price} LKR
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Adderss : </b> {selecteditem?.address}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Contact : </b> {selecteditem?.phone}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Campus Area : </b> {selecteditem?.area}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Email : </b> {selecteditem?.email}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        <b>Description : </b> {selecteditem?.description}
-                    </Typography>
-                    <div style={{ display: 'flex', flexDirection: 0 }}>
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={selecteditem?.picture2}
-                            alt={selecteditem?.name}
-                            sx={{ marginLeft: '10px', padding: '25px', radius: '10px' }}
-                        />
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={selecteditem?.picture3}
-                            alt={selecteditem?.name}
-                            sx={{ padding: '25px', radius: '10px' }}
-                        />
-                        <CardMedia
-                            component="img"
-                            height="200"
-                            image={selecteditem?.picture4}
-                            alt={selecteditem?.name}
-                            sx={{ marginRight: '10px', padding: '25px', radius: '10px' }}
+                    <h1 style={{ fontSize: `16px` }}>Virtual Sunglasses Try-On</h1>
+                    <div className="video-container">
+                        <img
+                            key={selecteditem?.sunglass}
+                            src={`http://localhost:8000/stream/?sunglasses=${selecteditem?.sunglass}`}
+                            alt="Sunglasses Try-On"
                         />
                     </div>
                 </DialogContent>
