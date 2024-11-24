@@ -70,6 +70,10 @@ const PaymentPage = () => {
         }
     };
 
+    const backNavigation = () => {
+        window.location.href = '/cart';
+    };
+
     return (
         <div
             style={{
@@ -166,6 +170,9 @@ const PaymentPage = () => {
                 <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2, fontSize: '12px' }}>
                     Submit Payment
                 </Button>
+                <Typography variant="body2" sx={{ mt: 2, color: `#ff6a4b`, fontSize: '12px', cursor: 'pointer' }} onClick={backNavigation}>
+                    Back
+                </Typography>
             </Box>
         </div>
     );
