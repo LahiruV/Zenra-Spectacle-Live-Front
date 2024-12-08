@@ -30,6 +30,7 @@ export default function PropertyCardList({ props }) {
     const handleClose = () => {
         setOpen(false);
         setSelecteditem(null);
+        window.location.reload();
     };
 
     return (

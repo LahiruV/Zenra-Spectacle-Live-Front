@@ -24,7 +24,7 @@ const dataList = [
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_30_.png',
         gender: 'Women',
         qty: 1,
-        sunglass: 'sunglasses1'
+        sunglass: 'sunglasses2'
     },
     {
         name: 'Polarized PL584 C4',
@@ -33,7 +33,7 @@ const dataList = [
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_design_58_.png',
         gender: 'Unisex',
         qty: 1,
-        sunglass: 'sunglasses1'
+        sunglass: 'sunglasses3'
     },
     {
         name: 'Polarsun PL-5594P C4 G2',
@@ -42,7 +42,7 @@ const dataList = [
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/_/a_5_1.jpg',
         gender: 'Women',
         qty: 1,
-        sunglass: 'sunglasses1'
+        sunglass: 'sunglasses4'
 
     },
     {
@@ -52,7 +52,7 @@ const dataList = [
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/m/img_0255.jpg',
         gender: 'Women',
         qty: 1,
-        sunglass: 'sunglasses1'
+        sunglass: 'sunglasses5'
 
     },
     {
@@ -62,7 +62,7 @@ const dataList = [
         picture: 'https://shop.visioncare.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/b/rb3025.png',
         gender: 'Men',
         qty: 1,
-        sunglass: 'sunglasses1'
+        sunglass: 'sunglasses6'
 
     },
 ];
